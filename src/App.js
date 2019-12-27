@@ -10,6 +10,9 @@ function App() {
         <p>
           I'm changing this stupid text just to see how long it takes.
         </p>
+        <p>
+          This a great new feature on feature_branch.
+        </p>
         <a
           className="App-link"
           href="https://reactjs.org"
