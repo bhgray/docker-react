@@ -9,14 +9,20 @@ script:
     - docker run -e CI=true bhgray/docker-react npm run test
 
 deploy:
-    edge: true
-    provider: elasticbeanstalk
-    region: "us-east-1"
-    app: "docker-react"
-    env: "DockerReact-env"
-    bucket_name: "elasticbeanstalk-us-east-1-117214242521"
-    bucket_path: "docker-react"
-    on: 
-        branch: master
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
+    # - provider: elasticbeanstalk
+    #   edge: true
+    #   region: "us-east-1"
+    #   app: "docker-react"
+    #   env: "DockerReact-env"
+    #   bucket_name: "elasticbeanstalk-us-east-1-117214242521"
+    #   bucket_path: "docker-react"
+    #   on: 
+    #     branch: master
+    #   access_key_id: $AWS_ACCESS_KEY
+    #   secret_access_key: $AWS_SECRET_KEY
+    -   provider: azure_web_apps
+        edge: true
+        verbose: true
+        username: docker_admin    # If AZURE_WA_USERNAME isn't set
+        password: ph0ebe1sdocker    # If AZURE_WA_PASSWORD isn't set
+        site: "docker-react"            # If AZURE_WA_SITE isn't set
